@@ -1,14 +1,21 @@
 package ru.netology.radio;
 
 public class Radio {
-    //номер текущей радиостанции
-    //громкость звука
 
     private int currentRadioStation;
     private int currentRadioVolume;
+    private int maxRadioStations;
+
+    public Radio () {
+        this.maxRadioStations = 9;
+    }
+
+    public Radio (int amountOfStations) {
+        this.maxRadioStations = amountOfStations - 1;
+    }
 
     public void next() {
-        if (currentRadioStation != 9) {
+        if (currentRadioStation != maxRadioStations) {
             currentRadioStation++;
         } else {
             currentRadioStation = 0;
@@ -19,7 +26,7 @@ public class Radio {
         if (currentRadioStation != 0) {
             currentRadioStation--;
         } else {
-            currentRadioStation = 9;
+            currentRadioStation = maxRadioStations;
         }
     }
 
@@ -43,7 +50,7 @@ public class Radio {
         if (currentRadioStation < 0) {
             return;
         }
-        if (currentRadioStation > 9) {
+        if (currentRadioStation > maxRadioStations) {
             return;
         }
         this.currentRadioStation = currentRadioStation;
